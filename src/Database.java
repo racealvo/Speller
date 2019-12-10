@@ -3,100 +3,109 @@
  */
 public class Database 
 {
-	GrabNewPairing()
+	// TODO: this hard codes a family for now.
+	Database()
 	{
-		Pairing pairing = new Pairing(1);
+		int wordId = 0;
+		int avUnitId = 0;
+		int visualId = 0;
+		int audioId = 0;
+		Word word;
+		AVUnit avUnit;
 		
-		pairing.setSuffix("AT");
+		Family family = new Family(1);
+		family.setSuffix("AT");
 
-		pairing.AddPrefix("B");
-		pairing.AddPrefix("C");
-		pairing.AddPrefix("F");
-		pairing.AddPrefix("H");
-		pairing.AddPrefix("L");
-		pairing.AddPrefix("M");
-		pairing.AddPrefix("P");
-		pairing.AddPrefix("R");
-		pairing.AddPrefix("S");
-		pairing.AddPrefix("T");
-		pairing.AddPrefix("V");
-		
-		// we are spelling it here, but we will say it.  This will be an audio clip.
-		pairing.AddWordSound(new Sound("Saying the word: BAT"));
-		pairing.AddWordSound(new Sound("Saying the word: CAT"));
-		pairing.AddWordSound(new Sound("Saying the word: FAT"));
-		pairing.AddWordSound(new Sound("Saying the word: HAT"));
-		pairing.AddWordSound(new Sound("Saying the word: LAT"));
-		pairing.AddWordSound(new Sound("Saying the word: MAT"));
-		pairing.AddWordSound(new Sound("Saying the word: PAT"));
-		pairing.AddWordSound(new Sound("Saying the word: RAT"));
-		pairing.AddWordSound(new Sound("Saying the word: SAT"));
-		pairing.AddWordSound(new Sound("Saying the word: TAT"));
-		pairing.AddWordSound(new Sound("Saying the word: VAT"));
-		
-		// we are spelling it here, but we will add real pictures here.
-		
 		//Bat
-		PictureUnit pictureUnit = new PictureUnit();
-		pictureUnit.add("Animal: Flying Bat");
-		pictureUnit.add("Baseball Bat");
-		pictureUnit.add("gif of a bat swinging, as in \"to bat\"");
-		picList.add(pictureUnit);
+		word = new Word(wordId++);
+		word.setPrefix("B");
+		word.setWordSound(new Audio("Saying the word: BAT"));
+		avUnit = new AVUnit(avUnitId++);
+		word.AddAV(new Visual(visualId++, "Animal: Flying Bat"), new Audio(audioId, "Squeek, squeek"));
+		word.AddAV(new Visual("Baseball Bat"), new Audio("Crack of a bat"));
+		word.AddAV(new Visual("gif of a someone batting at a fly."), new Audio("no sound"));
+		word.setSoundOut(new Audio("Buh - AT, BAT"));
+		
+
+		family.AddPrefix("C");
+		family.AddPrefix("F");
+		family.AddPrefix("H");
+		family.AddPrefix("L");
+		family.AddPrefix("M");
+		family.AddPrefix("P");
+		family.AddPrefix("R");
+		family.AddPrefix("S");
+		family.AddPrefix("T");
+		family.AddPrefix("V");
+		
+		// TODO: we are spelling it here, but we will say it.  This will be an audio clip.
+		family.AddWordSound(new Audio("Saying the word: CAT"));
+		family.AddWordSound(new Audio("Saying the word: FAT"));
+		family.AddWordSound(new Audio("Saying the word: HAT"));
+		family.AddWordSound(new Audio("Saying the word: LAT"));
+		family.AddWordSound(new Audio("Saying the word: MAT"));
+		family.AddWordSound(new Audio("Saying the word: PAT"));
+		family.AddWordSound(new Audio("Saying the word: RAT"));
+		family.AddWordSound(new Audio("Saying the word: SAT"));
+		family.AddWordSound(new Audio("Saying the word: TAT"));
+		family.AddWordSound(new Audio("Saying the word: VAT"));
+		
+		// TODO: we are spelling it here, but we will add real pictures here.
+		
 		
 		//Cat
 		pictureUnit = new PictureUnit();
-		pictureUnit.add("Calico Cat");
-		pictureUnit.add("Black Cat");
-		pictureUnit.add("Mad Cat");
+		family.AddPictureUnit("Calico Cat");
+		family.AddPictureUnit("Black Cat");
+		family.AddPictureUnit("Mad Cat");
 		picList.add(pictureUnit);
 		
 		//Fat
 		pictureUnit = new PictureUnit();
-		pictureUnit.add("Fat Pic");
+		family.AddPictureUnit("Fat Pic");
 		picList.add(pictureUnit);
 		
 		//Hat
 		pictureUnit = new PictureUnit();
-		pictureUnit.add("Hat Pic");
+		family.AddPictureUnit("Hat Pic");
 		picList.add(pictureUnit);
 		
 		//Lat
 		pictureUnit = new PictureUnit();
-		pictureUnit.add("Lat Pic");
+		family.AddPictureUnit("Lat Pic");
 		picList.add(pictureUnit);
 		
 		//Mat
 		pictureUnit = new PictureUnit();
-		pictureUnit.add("Mat Pic");
+		family.AddPictureUnit("Mat Pic");
 		picList.add(pictureUnit);
 		
 		//Pat
 		pictureUnit = new PictureUnit();
-		pictureUnit.add("Pat Pic");
+		family.AddPictureUnit("Pat Pic");
 		picList.add(pictureUnit);
 		
 		//Rat
 		pictureUnit = new PictureUnit();
-		pictureUnit.add("Rat Pic");
+		family.AddPictureUnit("Rat Pic");
 		picList.add(pictureUnit);
 		
 		//Sat
 		pictureUnit = new PictureUnit();
-		pictureUnit.add("Sat Pic");
+		family.AddPictureUnit("Sat Pic");
 		picList.add(pictureUnit);
 		
 		//Tat
 		pictureUnit = new PictureUnit();
-		pictureUnit.add("Tat Pic");
+		family.AddPictureUnit("Tat Pic");
 		picList.add(pictureUnit);
 		
 		//Vat
 		pictureUnit = new PictureUnit();
-		pictureUnit.add("Vat Pic");
+		family.AddPictureUnit("Vat Pic");
 		picList.add(pictureUnit);
 		
 		// we are spelling it here, but we will say it.  This will be an audio clip.
-		soundOutList.add("Buh - AT, BAT");
 		soundOutList.add("Cuh - AT, CAT");
 		soundOutList.add("Fuh - AT, FAT");
 		soundOutList.add("Huh - AT, HAT");
@@ -107,5 +116,9 @@ public class Database
 		soundOutList.add("Suh - AT, SAT");
 		soundOutList.add("Tuh - AT, TAT");
 		soundOutList.add("Vuh - AT, VAT");
+	}
+	
+	GrabNewPairing()
+	{
 	}
 }

@@ -3,7 +3,7 @@ import java.util.ArrayList;
 /* Contains List of Word Pairings
  * 
  */
-public class Pairing {
+public class Family {
 	private	int			id; 
 	private String		suffix = "";
 	private ArrayList	prefixList = new ArrayList();
@@ -13,10 +13,10 @@ public class Pairing {
 	private ArrayList	soundEffectList = new ArrayList();
 	private ArrayList	usedPrefixIndices = new ArrayList();
 	
-	public Pairing(int _id)
+	public Family(int _id)
 	{
 		id = _id;
-		
+
 		// we are spelling it here, but we will say it.  This will be an audio clip.
 		wordSoundList.add("Saying the word: BAT");
 		wordSoundList.add("Saying the word: CAT");
@@ -147,9 +147,9 @@ public class Pairing {
 		this.wordSoundList = wordSoundList;
 	}
 	
-	public void AddWordSound(Sound sound)
+	public void AddWordSound(Audio audio)
 	{
-		wordSoundList.add(sound);
+		wordSoundList.add(audio);
 	}
 
 	public ArrayList getSoundOutList() {

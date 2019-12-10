@@ -10,7 +10,7 @@ public class GameMode
 	{
 		ArrayList pairingList = new ArrayList();
 		
-		Pairing pairing = Database.GrabNewPairing();
+		Family family = Database.GrabNewPairing();
 		
 		// present picture
 		// present letters

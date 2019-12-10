@@ -1,16 +1,16 @@
 /*
  * TODO: This class starts as a string, but then will become a sound when the final UI is developed.
  */
-public class Sound
+public class Audio
 {
 	private String sound;
 	
-	public Sound()
+	public Audio()
 	{
 		sound = new String();
 	}
 	
-	public Sound(String _sound)
+	public Audio(String _sound)
 	{
 		sound = _sound;
 	}
