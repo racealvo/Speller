@@ -3,30 +3,30 @@
  */
 public class Database 
 {
+	private int audioId = 0;
+	private int visualId = 0;
+	private Word word;
+	private int wordId = 0;
+	private int avUnitId = 0;
+	private Family family;
+	
 	// TODO: this hard codes a family for now.
 	Database()
 	{
-		int wordId = 0;
-		int avUnitId = 0;
-		int visualId = 0;
-		int audioId = 0;
-		Word word;
-		AVUnit avUnit;
-		
-		Family family = new Family(1);
+		family = new Family(1);
 		family.setSuffix("AT");
 
 		//Bat
 		word = new Word(wordId++);
 		word.setPrefix("B");
-		word.setWordSound(new Audio("Saying the word: BAT"));
-		avUnit = new AVUnit(avUnitId++);
-		word.AddAV(new Visual(visualId++, "Animal: Flying Bat"), new Audio(audioId, "Squeek, squeek"));
-		word.AddAV(new Visual("Baseball Bat"), new Audio("Crack of a bat"));
-		word.AddAV(new Visual("gif of a someone batting at a fly."), new Audio("no sound"));
-		word.setSoundOut(new Audio("Buh - AT, BAT"));
+		word.setPrefixSound(Constants.B);
+		word.setWordSound(new Audio(audioId++, "Saying the word: BAT"));
+		word.addAVUnit(new Audio(3001, "Squeek, squeek"), new Visual(3001, "Animal: Flying Bat"));
+		word.addAVUnit(new Audio(3002, "Crack of a bat"), new Visual(3002, "Baseball Bat"));
+		word.addAVUnit(new Audio(3003, "no sound"), new Visual(3003, "gif of a someone batting at a fly."));
+		word.setSoundOut(new Audio(audioId++, "Buh - AT, BAT"));
 		
-
+/*
 		family.AddPrefix("C");
 		family.AddPrefix("F");
 		family.AddPrefix("H");
@@ -116,9 +116,18 @@ public class Database
 		soundOutList.add("Suh - AT, SAT");
 		soundOutList.add("Tuh - AT, TAT");
 		soundOutList.add("Vuh - AT, VAT");
+*/
+	}
+
+	// TODO: CHANGE THIS TO GRAB ALL FAMILIES
+	public Family GrabNewFamily()
+	{
+		return family;
 	}
 	
-	GrabNewPairing()
+	// TODO: CHANGE THIS TO GRAB ALL WORDS
+	public Word GrabNewWord(Family family)
 	{
+		return word;
 	}
 }
